@@ -1,0 +1,215 @@
+[
+  {
+    "type" : "record",
+    "name" : "Attribute",
+    "namespace" : "com.eseict.iot.domain.resource.dataType.complexDataTypes",
+    "fields" : [ {
+      "name" : "name",
+      "type" : [ "null", {"type" : "string", "avro.java.string": "String"}],
+      "default" : null
+    }, {
+      "name" : "value",
+      "type" : [ "null", {"type" : "string", "avro.java.string": "String"}],
+      "default" : null
+    } ]
+  },
+  {
+    "type" : "record",
+    "name" : "FilterCriteria",
+    "namespace" : "com.eseict.iot.domain.object",
+    "fields" : [ {
+      "name" : "createdBefore",
+      "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+      "default" : null
+    }, {
+      "name" : "createdAfter",
+      "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+      "default" : null
+    }, {
+      "name" : "modifiedSince",
+      "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+      "default" : null
+    }, {
+      "name" : "unmodifiedSince",
+      "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+      "default" : null
+    }, {
+      "name" : "stateTagSmaller",
+      "type" : [ "null", "int" ],
+      "default" : null
+    }, {
+      "name" : "stateTagBigger",
+      "type" : [ "null", "int" ],
+      "default" : null
+    }, {
+      "name" : "expireBefore",
+      "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+      "default" : null
+    }, {
+      "name" : "expireAfter",
+      "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+      "default" : null
+    }, {
+      "name" : "labels",
+      "type" : [ "null", {
+        "type" : "array",
+        "items" : {"type" : "string", "avro.java.string": "String"},
+        "java-class" : "[Ljava.lang.String;"
+      } ],
+      "default" : null
+    }, {
+      "name" : "resourceType",
+      "type" : [ "null", {
+        "type" : "array",
+        "items" : "int",
+        "java-class" : "[Ljava.lang.Integer;"
+      } ],
+      "default" : null
+    }, {
+      "name" : "sizeAbove",
+      "type" : [ "null", "int" ],
+      "default" : null
+    }, {
+      "name" : "sizeBelow",
+      "type" : [ "null", "int" ],
+      "default" : null
+    }, {
+      "name" : "contentType",
+      "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+      "default" : null
+    }, {
+      "name" : "attribute",
+      "type" : [ "null", {
+        "type" : "array",
+        "items" : "com.eseict.iot.domain.resource.dataType.complexDataTypes.Attribute",
+        "java-class" : "[Lcom.eseict.iot.domain.resource.dataType.complexDataTypes.Attribute;"
+      } ],
+      "default" : null
+    }, {
+      "name" : "filterUsage",
+      "type" : [ "null", "int" ],
+      "default" : null
+    }, {
+      "name" : "limit",
+      "type" : [ "null", "int" ],
+      "default" : null
+    }, {
+      "name" : "begin",
+      "type" : [ "null", "int" ],
+      "default" : null
+    }, {
+      "name" : "currentSize",
+      "type" : [ "null", "int" ],
+      "default" : null
+    } ]
+  },
+  {
+    "type" : "record",
+    "name" : "ResponseTypeInfo",
+    "namespace" : "com.eseict.iot.domain.object",
+    "fields" : [ {
+      "name" : "responseTypeValue",
+      "type" : [ "null", "int" ],
+      "default" : null
+    }, {
+      "name" : "notificationURI",
+      "type" : [ "null", {
+        "type" : "array",
+        "items" : {"type" : "string", "avro.java.string": "String"},
+        "java-class" : "java.util.List"
+      } ],
+      "default" : null
+    } ]
+  },
+  {
+  "type" : "record",
+  "name" : "RequestPrimitive",
+  "namespace" : "com.eseict.iot.domain.object",
+  "fields" : [ {
+    "name" : "operation",
+    "type" : [ "null", "int" ],
+    "default" : null
+  }, {
+    "name" : "to",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "from",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "requestIdentifier",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "resourceType",
+    "type" : [ "null", "int" ],
+    "default" : null
+  }, {
+    "name" : "content",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "role",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "originatingTimestamp",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "requestExpirationTimestamp",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "resultExpirationTimestamp",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "operationExecutionTime",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "responseType",
+    "type" : [ "null", "ResponseTypeInfo"
+  	],
+    "default" : null
+  }, {
+    "name" : "resultPersistence",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "resultContent",
+    "type" : [ "null", "int" ],
+    "default" : null
+  }, {
+    "name" : "eventCategory",
+    "type" : [ "null", "int" ],
+    "default" : null
+  }, {
+    "name" : "deliveryAggregation",
+    "type" : [ "null", "boolean" ],
+    "default" : null
+  }, {
+    "name" : "groupRequestIdentifier",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "filterCriteria",
+    "type" : [ "null", "FilterCriteria"],
+    "default" : null
+  }, {
+    "name" : "discoveryResultType",
+    "type" : [ "null", "int" ],
+    "default" : null
+  }, {
+    "name" : "contentType",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "accept",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  } ]
+}
+]

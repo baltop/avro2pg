@@ -1,0 +1,69 @@
+{
+  "type" : "record",
+  "name" : "RequestPrimitive",
+  "namespace" : "com.eseict.iot.domain.object",
+  "fields" : [ {
+    "name" : "operation",
+    "type" : [ "null", "int" ],
+    "default" : null
+  }, {
+    "name" : "to",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "from",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "requestIdentifier",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "resourceType",
+    "type" : [ "null", "int" ],
+    "default" : null
+  }, {
+    "name" : "content",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "role",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "originatingTimestamp",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "requestExpirationTimestamp",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "resultExpirationTimestamp",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "operationExecutionTime",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, 
+ 
+  {
+    "name" : "resultPersistence",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  }, {
+    "name" : "resultContent",
+    "type" : [ "null", "int" ],
+    "default" : null
+  }, {
+    "name" : "eventCategory",
+    "type" : [ "null", "int" ],
+    "default" : null
+  }, 
+  {
+    "name" : "groupRequestIdentifier",
+    "type" : [ "null", {"type" : "string", "avro.java.string": "String"} ],
+    "default" : null
+  } ]
+}
