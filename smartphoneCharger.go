@@ -1,7 +1,7 @@
 package main
 
 import (
-	"avrotest/database"
+	"avro2pg/database"
 	"database/sql"
 	"encoding/json"
 	"fmt"

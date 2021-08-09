@@ -1,7 +1,7 @@
 package database
 
 import (
-	"avrotest/config"
+	"avro2pg/config"
 	"testing"
 )
 

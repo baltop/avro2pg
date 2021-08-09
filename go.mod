@@ -1,4 +1,4 @@
-module avrotest
+module avro2pg
 
 go 1.16
 

@@ -2,8 +2,8 @@ package main
 
 // main.go
 import (
-	"avrotest/config"
-	"avrotest/database"
+	"avro2pg/config"
+	"avro2pg/database"
 	"context"
 	"database/sql"
 	"encoding/json"
