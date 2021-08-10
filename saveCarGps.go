@@ -12,10 +12,11 @@ type CarGpsList struct {
 func saveCarGps(originStr string) {
 
 	carGpsList := CarGpsList{}
+	// carGps := database.CarGps{}
 	json.Unmarshal([]byte(originStr), &carGpsList)
-	for val := range carGpsList.PacketLogList {
-		carGps := val
-		database.DB.Create(&carGps)
-	}
-
+	// for val := range carGpsList.PacketLogList {
+	// 	carGps = val
+	// 	database.DB.Create(&carGps)
+	// }
+	database.DB.Create(&carGpsList.PacketLogList[0])
 }
