@@ -57,6 +57,7 @@ func ConnectDB() {
 	DB.AutoMigrate(&SmartphoneCharger{})
 
 	DB.AutoMigrate(&SmartphoneChargerStatus{})
+	DB.AutoMigrate(&CarGps{})
 	fmt.Println("Database Migrated")
 
 }
