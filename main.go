@@ -106,7 +106,7 @@ func main() {
 			} else if deviceId == "716b645637de42cfbed120018b7d5bd7" {
 				go saveSmartPhoneChargerStatus(originStr)
 			}
-		case "5aa8aa715144494e888f0708fd3e124c":
+		case "39cd1e9ed0da43c0bc7fb55e214e70e9":
 			go saveCarGps(originStr)
 		}
 
