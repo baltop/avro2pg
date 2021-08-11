@@ -108,6 +108,12 @@ func main() {
 			}
 		case "39cd1e9ed0da43c0bc7fb55e214e70e9":
 			go saveCarGps(originStr)
+		case "61c42d3e474c47509e4adaebc08c8d47":
+			if deviceId == "3a8d372a53904793bc7988c6a3f68db2" {
+				go saveGunState(originStr)
+			} else {
+				go saveGunEvent(originStr)
+			}
 		}
 
 	}
