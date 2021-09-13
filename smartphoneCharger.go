@@ -35,9 +35,14 @@ func saveSmartPhoneCharger(originStr string) {
 
 }
 
+type SmartphoneChargerStatusJsonSub struct {
+	TrayNo     string
+	TrayStatus string
+}
+
 type SmartphoneChargerStatusJson struct {
-	KioskCode     string          `json:"KioskCode"`
-	AllTrayStatus json.RawMessage `json:"AllTrayStatus"`
+	KioskCode     string                           `json:"KioskCode"`
+	AllTrayStatus []SmartphoneChargerStatusJsonSub `json:"AllTrayStatus"`
 }
 
 func saveSmartPhoneChargerStatus(originStr string) {
@@ -48,7 +53,19 @@ func saveSmartPhoneChargerStatus(originStr string) {
 
 	smartPhoneChargerStatus := database.SmartphoneChargerStatus{}
 	smartPhoneChargerStatus.KioskCode = smartphoneChargerStatusJson.KioskCode
-	smartPhoneChargerStatus.AllTrayStatus = string(smartphoneChargerStatusJson.AllTrayStatus)
+	lastStatus := ""
+	for i := 0; i < len(smartphoneChargerStatusJson.AllTrayStatus); i++ {
+		olp := smartphoneChargerStatusJson.AllTrayStatus[i]
+		if olp.TrayStatus == "E" {
+			lastStatus += ",0"
+		} else {
+			lastStatus += ",1"
+		}
+
+	}
+	lastStatus = lastStatus[1:]
+
+	smartPhoneChargerStatus.AllTrayStatus = lastStatus
 	smartPhoneChargerStatus.CreatedAt = time.Now()
-	database.DB.Create(&smartPhoneChargerStatus)
+	database.DB.Save(&smartPhoneChargerStatus)
 }

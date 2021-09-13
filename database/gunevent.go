@@ -4,13 +4,13 @@ import "gorm.io/gorm"
 
 type GunEvent struct {
 	gorm.Model
-	EquipID     string `json:"equipId"`
-	GunsState   string `json:"gunsState"`
-	LockState   string `json:"lockState"`
-	GunsEvent   string `json:"gunsEvent"`
-	LockEvent   string `json:"lockEvent"`
-	EventReason string `json:"eventReason"`
-	DateTime    string `json:"dateTime"`
+	EquipID    string `json:"equipId"`
+	EventNo    string `json:"eventNo"`
+	EventKind  string `json:"eventKind"`
+	EventValue string `json:"eventValue"`
+	DateTime   string `json:"dateTime"`
+	Name       string `json:"name"`
+	Rank       string `json:"rank"`
 }
 
 func (u *GunEvent) TableName() string {

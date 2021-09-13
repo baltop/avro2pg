@@ -8,7 +8,7 @@ import (
 
 // 스마트폰 상태 gorm에서 지원안하는 데이터 타입으로 자동 table 생성에서 제외함. struct
 type SmartphoneChargerStatus struct {
-	KioskCode     string
+	KioskCode     string `gorm:"primarykey"`
 	AllTrayStatus string
 	CreatedAt     time.Time
 	UpdatedAt     time.Time

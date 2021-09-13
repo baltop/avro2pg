@@ -108,12 +108,22 @@ func main() {
 			}
 		case "39cd1e9ed0da43c0bc7fb55e214e70e9":
 			go saveCarGps(originStr)
+			go saveCarGpsStatus(originStr)
 		case "61c42d3e474c47509e4adaebc08c8d47":
 			if deviceId == "3a8d372a53904793bc7988c6a3f68db2" {
 				go saveGunState(originStr)
 			} else {
 				go saveGunEvent(originStr)
 			}
+		case "b02a481a38f7496d97bf80c70ab7c207":
+			go saveDroneStation(originStr)
+		case "2f1a4cf209a34db0affab936762de55c":
+			go saveDroneFlight(originStr)
+		case "49d3fc4e819245dfa5005e372fa05cc4":
+			fmt.Println("++++++++++++++++++++++++++++++!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!+++++++++++++++++++++++++++++++++++++++")
+			fmt.Println(originStr)
+			fmt.Println("++++++++++++++++++++++++++++++!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!+++++++++++++++++++++++++++++++++++++++")
+			go saveWatchBoxStatus(originStr)
 		}
 
 	}
@@ -124,7 +134,7 @@ func saveIncar(originStr string) {
 	loc, _ := time.LoadLocation("Asia/Seoul")
 	incar := database.Incar{}
 	json.Unmarshal([]byte(originStr), &incar)
-	dateTime, err := time.ParseInLocation("2006-01-02 15:04:05.999", incar.Data.DateTime, loc)
+	dateTime, err := time.ParseInLocation("20060102150405", incar.Data.DateTime, loc)
 	if err != nil {
 		fmt.Println(err.Error())
 	}

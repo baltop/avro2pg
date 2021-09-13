@@ -3,6 +3,7 @@ package main
 import (
 	"avro2pg/database"
 	"encoding/json"
+	"fmt"
 )
 
 func saveGunState(originStr string) {
@@ -11,11 +12,12 @@ func saveGunState(originStr string) {
 
 	json.Unmarshal([]byte(originStr), &gunState)
 
-	database.DB.Create(&gunState)
+	database.DB.Save(&gunState)
 }
 
 func saveGunEvent(originStr string) {
 
+	fmt.Println("guneventorigin   : ", originStr)
 	gunEvent := database.GunEvent{}
 
 	json.Unmarshal([]byte(originStr), &gunEvent)

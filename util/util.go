@@ -2,7 +2,10 @@ package util
 
 import (
 	"strconv"
+	"strings"
 	"time"
+
+	uuid "github.com/satori/go.uuid"
 )
 
 func StringUnixToDateTime(inputTime string) time.Time {
@@ -17,4 +20,10 @@ func StringUnixToDateTime(inputTime string) time.Time {
 
 func UnixToDateTime(inputTime int) time.Time {
 	return time.Unix(int64(inputTime), 0)
+}
+
+func UUID24Digit() string {
+	u2 := uuid.NewV4()
+	t := strings.ReplaceAll(u2.String(), "-", "")
+	return t[0:24]
 }

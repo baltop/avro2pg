@@ -1,10 +1,7 @@
 package database
 
-import "gorm.io/gorm"
-
 type GunState struct {
-	gorm.Model
-	EquipID   string `json:"equipId"`
+	EquipID   string `gorm:"primarykey" json:"equipId"`
 	GunsState string `json:"gunsState"`
 	LockState string `json:"lockState"`
 	DateTime  string `json:"dateTime"`
