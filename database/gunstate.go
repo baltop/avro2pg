@@ -7,6 +7,8 @@ type GunState struct {
 	DateTime  string `json:"dateTime"`
 	Name      string `json:"name"`
 	Rank      string `json:"rank"`
+	Company   string `json:"company"`
+	Dormitory string `json:"dormitory"`
 }
 
 func (u *GunState) TableName() string {

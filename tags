@@ -1,77 +1,89 @@
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
-!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
-!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
-!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/home/baltop/work/golang/avro/	//
-!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
-!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
-!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	5.9.0	/e8457b50/
-A	database/sensor_gas.go	/^	A           float64       `gorm:"not null" json:"a"`$/;"	m	struct:database.SensorGas	typeref:typename:float64
-Addr	database/sensor_gas.go	/^	Addr        SensorGasAddr `gorm:"embedded;embeddedPrefix:addr_" json:"addr"`$/;"	m	struct:database.SensorGas	typeref:typename:SensorGasAddr
-AllTrayStatus	database/smartphoneChargerStatus.go	/^	AllTrayStatus string$/;"	m	struct:database.SmartphoneChargerStatus	typeref:typename:string
-AllTrayStatus	smartphoneCharger.go	/^	AllTrayStatus json.RawMessage `json:"AllTrayStatus"`$/;"	m	struct:main.SmartphoneChargerStatusJson	typeref:typename:json.RawMessage
-CarNumber	database/incar.go	/^	CarNumber   string       `gorm:"not null" json:"car_number"`$/;"	m	struct:database.Data	typeref:typename:string
-City	database/sensor_gas.go	/^	City string `gorm:"null" json:"city"`$/;"	m	struct:database.SensorGasAddr	typeref:typename:string
-Command	database/incar.go	/^	Command string `gorm:"not null" json:"command"`$/;"	m	struct:database.Incar	typeref:typename:string
-Config	config/config.go	/^func Config(key string) string {$/;"	f	package:config	typeref:typename:string
-ConnectDB	database/connect.go	/^func ConnectDB() {$/;"	f	package:database
-CreatedAt	database/smartphoneChargerStatus.go	/^	CreatedAt     time.Time$/;"	m	struct:database.SmartphoneChargerStatus	typeref:typename:time.Time
-DB	database/connect.go	/^var DB *gorm.DB$/;"	v	package:database	typeref:typename:*gorm.DB
-Data	database/incar.go	/^	Data    Data   `gorm:"embedded" json:"data"`$/;"	m	struct:database.Incar	typeref:typename:Data
-Data	database/incar.go	/^type Data struct {$/;"	s	package:database
-DateTime	database/incar.go	/^	DateTime    string       `gorm:"-" json:"date_time"`$/;"	m	struct:database.Data	typeref:typename:string
-DeletedAt	database/smartphoneChargerStatus.go	/^	DeletedAt     time.Time$/;"	m	struct:database.SmartphoneChargerStatus	typeref:typename:time.Time
-InDateTime	database/incar.go	/^	InDateTime  sql.NullTime `gorm:"null" json:"in_date_time,omitempty"`$/;"	m	struct:database.Data	typeref:typename:sql.NullTime
-Incar	database/incar.go	/^type Incar struct {$/;"	s	package:database
-Kind	database/incar.go	/^	Kind        string       `gorm:"not null" json:"kind"`$/;"	m	struct:database.Data	typeref:typename:string
-KioskCode	database/smartphoneCharger.go	/^	KioskCode      string `gorm:"not null" json:"KioskCode"`$/;"	m	struct:database.SmartphoneCharger	typeref:typename:string
-KioskCode	database/smartphoneChargerStatus.go	/^	KioskCode     string$/;"	m	struct:database.SmartphoneChargerStatus	typeref:typename:string
-KioskCode	smartphoneCharger.go	/^	KioskCode     string          `json:"KioskCode"`$/;"	m	struct:main.SmartphoneChargerStatusJson	typeref:typename:string
-Ku	database/sensor_gas.go	/^	Ku   string `gorm:"null" json:"ku"`$/;"	m	struct:database.SensorGasAddr	typeref:typename:string
-Load	config/config.go	/^func Load() {$/;"	f	package:config
-Lprid	database/incar.go	/^	Lprid       string       `gorm:"not null" json:"lprid"`$/;"	m	struct:database.Data	typeref:typename:string
-Model	database/incar.go	/^	gorm.Model$/;"	M	struct:database.Incar	typeref:typename:gorm.Model
-Model	database/sensor_gas.go	/^	gorm.Model$/;"	M	struct:database.SensorGas	typeref:typename:gorm.Model
-Model	database/smartphoneCharger.go	/^	gorm.Model$/;"	M	struct:database.SmartphoneCharger	typeref:typename:gorm.Model
-Name	database/sensor_gas.go	/^	Name        string        `gorm:"not null" json:"name"`$/;"	m	struct:database.SensorGas	typeref:typename:string
-NumberOfKey	database/sensor_gas.go	/^	NumberOfKey int64         `gorm:"not null" json:"numberOfKey"`$/;"	m	struct:database.SensorGas	typeref:typename:int64
-OutDateTime	database/incar.go	/^	OutDateTime sql.NullTime `gorm:"null" json:"out_date_time,omitempty"`$/;"	m	struct:database.Data	typeref:typename:sql.NullTime
-SensorGas	database/sensor_gas.go	/^type SensorGas struct {$/;"	s	package:database
-SensorGasAddr	database/sensor_gas.go	/^type SensorGasAddr struct {$/;"	s	package:database
-SmartphoneCharger	database/smartphoneCharger.go	/^type SmartphoneCharger struct {$/;"	s	package:database
-SmartphoneChargerStatus	database/smartphoneChargerStatus.go	/^type SmartphoneChargerStatus struct {$/;"	s	package:database
-SmartphoneChargerStatusJson	smartphoneCharger.go	/^type SmartphoneChargerStatusJson struct {$/;"	s	package:main
-TableName	database/incar.go	/^func (u *Incar) TableName() string {$/;"	f	struct:database.Incar	typeref:typename:string
-TableName	database/sensor_gas.go	/^func (u *SensorGas) TableName() string {$/;"	f	struct:database.SensorGas	typeref:typename:string
-TableName	database/smartphoneCharger.go	/^func (u *SmartphoneCharger) TableName() string {$/;"	f	struct:database.SmartphoneCharger	typeref:typename:string
-TableName	database/smartphoneChargerStatus.go	/^func (u *SmartphoneChargerStatus) TableName() string {$/;"	f	struct:database.SmartphoneChargerStatus	typeref:typename:string
-TestLoad	config/config.go	/^func TestLoad() {$/;"	f	package:config
-TestSensorDataInsert	database/sensor_gas_test.go	/^func TestSensorDataInsert(t *testing.T) {$/;"	f	package:database
-TimeEnd	database/smartphoneCharger.go	/^	TimeEnd        string `gorm:"-" json:"TimeUseEnd,omitempty"`$/;"	m	struct:database.SmartphoneCharger	typeref:typename:string
-TimeStart	database/smartphoneCharger.go	/^	TimeStart      string `gorm:"-" json:"TimeUseStart,omitempty"`$/;"	m	struct:database.SmartphoneCharger	typeref:typename:string
-Time_use_end	database/smartphoneCharger.go	/^	Time_use_end   sql.NullTime$/;"	m	struct:database.SmartphoneCharger	typeref:typename:sql.NullTime
-Time_use_start	database/smartphoneCharger.go	/^	Time_use_start sql.NullTime$/;"	m	struct:database.SmartphoneCharger	typeref:typename:sql.NullTime
-UpdatedAt	database/smartphoneChargerStatus.go	/^	UpdatedAt     time.Time$/;"	m	struct:database.SmartphoneChargerStatus	typeref:typename:time.Time
-UseCode	database/smartphoneCharger.go	/^	UseCode        string `gorm:"null" json:"UseCode"`$/;"	m	struct:database.SmartphoneCharger	typeref:typename:string
-UsingTray	database/smartphoneCharger.go	/^	UsingTray      string `gorm:"null" json:"UsingTray"`$/;"	m	struct:database.SmartphoneCharger	typeref:typename:string
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BodyJson	socksend.go	/^type BodyJson struct {$/;"	t
+CarGps	database/cargps.go	/^type CarGps struct {$/;"	t
+CarGpsList	saveCarGps.go	/^type CarGpsList struct {$/;"	t
+CarGpsStatus	database/cargpsStatus.go	/^type CarGpsStatus struct {$/;"	t
+CarGpsStatusList	saveCarGps.go	/^type CarGpsStatusList struct {$/;"	t
+Config	config/config.go	/^func Config(key string) string {$/;"	f
+ConnectDB	database/connect.go	/^func ConnectDB() {$/;"	f
+DB	database/connect.go	/^var DB *gorm.DB$/;"	v
+Data	database/incar.go	/^type Data struct {$/;"	t
+DroneFlight	database/droneFlight.go	/^type DroneFlight struct {$/;"	t
+DroneStation	database/droneStation.go	/^type DroneStation struct {$/;"	t
+GunEvent	database/gunevent.go	/^type GunEvent struct {$/;"	t
+GunState	database/gunstate.go	/^type GunState struct {$/;"	t
+Incar	database/incar.go	/^type Incar struct {$/;"	t
+Item	socksend.go	/^type Item struct {$/;"	t
+Load	config/config.go	/^func Load() {$/;"	f
+SensorGas	database/sensor_gas.go	/^type SensorGas struct {$/;"	t
+SensorGasAddr	database/sensor_gas.go	/^type SensorGasAddr struct {$/;"	t
+SmartphoneCharger	database/smartphoneCharger.go	/^type SmartphoneCharger struct {$/;"	t
+SmartphoneChargerStatus	database/smartphoneChargerStatus.go	/^type SmartphoneChargerStatus struct {$/;"	t
+SmartphoneChargerStatusJson	smartphoneCharger.go	/^type SmartphoneChargerStatusJson struct {$/;"	t
+SmartphoneChargerStatusJsonSub	smartphoneCharger.go	/^type SmartphoneChargerStatusJsonSub struct {$/;"	t
+StringUnixToDateTime	util/util.go	/^func StringUnixToDateTime(inputTime string) time.Time {$/;"	f
+TableName	database/cargps.go	/^func (u *CarGps) TableName() string {$/;"	f
+TableName	database/cargpsStatus.go	/^func (u *CarGpsStatus) TableName() string {$/;"	f
+TableName	database/droneFlight.go	/^func (u *DroneFlight) TableName() string {$/;"	f
+TableName	database/droneStation.go	/^func (u *DroneStation) TableName() string {$/;"	f
+TableName	database/gunevent.go	/^func (u *GunEvent) TableName() string {$/;"	f
+TableName	database/gunstate.go	/^func (u *GunState) TableName() string {$/;"	f
+TableName	database/incar.go	/^func (u *Incar) TableName() string {$/;"	f
+TableName	database/sensor_gas.go	/^func (u *SensorGas) TableName() string {$/;"	f
+TableName	database/smartphoneCharger.go	/^func (u *SmartphoneCharger) TableName() string {$/;"	f
+TableName	database/smartphoneChargerStatus.go	/^func (u *SmartphoneChargerStatus) TableName() string {$/;"	f
+TableName	database/watchBox.go	/^func (u *WatchBox) TableName() string {$/;"	f
+TestLoad	config/config.go	/^func TestLoad() {$/;"	f
+TestSensorDataInsert	database/sensor_gas_test.go	/^func TestSensorDataInsert(t *testing.T) {$/;"	f
+TestStringUnixToTime	util/util_test.go	/^func TestStringUnixToTime(t *testing.T) {$/;"	f
+UUID24Digit	util/util.go	/^func UUID24Digit() string {$/;"	f
+UnixToDateTime	util/util.go	/^func UnixToDateTime(inputTime int) time.Time {$/;"	f
+WatchBox	database/watchBox.go	/^type WatchBox struct {$/;"	t
+WatchBox	watchBox.go	/^type WatchBox struct {$/;"	t
 config	config/config.go	/^package config$/;"	p
+database	database/cargps.go	/^package database$/;"	p
+database	database/cargpsStatus.go	/^package database$/;"	p
 database	database/connect.go	/^package database$/;"	p
+database	database/droneFlight.go	/^package database$/;"	p
+database	database/droneStation.go	/^package database$/;"	p
+database	database/gunevent.go	/^package database$/;"	p
+database	database/gunstate.go	/^package database$/;"	p
 database	database/incar.go	/^package database$/;"	p
 database	database/sensor_gas.go	/^package database$/;"	p
 database	database/sensor_gas_test.go	/^package database$/;"	p
 database	database/smartphoneCharger.go	/^package database$/;"	p
 database	database/smartphoneChargerStatus.go	/^package database$/;"	p
-getKafkaReader	main.go	/^func getKafkaReader(kafkaURL, topic, groupID string) *kafka.Reader {$/;"	f	package:main	typeref:typename:*kafka.Reader
-init	main.go	/^func init() {$/;"	f	package:main
-kafka	main.go	/^	kafka "github.com\/segmentio\/kafka-go"$/;"	P	package:github.com/segmentio/kafka-go
-main	main.go	/^func main() {$/;"	f	package:main
+database	database/watchBox.go	/^package database$/;"	p
+getKafkaReader	main.go	/^func getKafkaReader(kafkaURL, topic, groupID string) *kafka.Reader {$/;"	f
+init	main.go	/^func init() {$/;"	f
+main	drone.go	/^package main$/;"	p
+main	gunbox.go	/^package main$/;"	p
+main	main.go	/^func main() {$/;"	f
 main	main.go	/^package main$/;"	p
+main	play/wow.go	/^func main() {$/;"	f
+main	play/wow.go	/^package main$/;"	p
+main	saveCarGps.go	/^package main$/;"	p
 main	smartphoneCharger.go	/^package main$/;"	p
-saveIncar	main.go	/^func saveIncar(originStr string) {$/;"	f	package:main
-saveSensorGas	main.go	/^func saveSensorGas(originStr string) {$/;"	f	package:main
-saveSmartPhoneCharger	smartphoneCharger.go	/^func saveSmartPhoneCharger(originStr string) {$/;"	f	package:main
-saveSmartPhoneChargerStatus	smartphoneCharger.go	/^func saveSmartPhoneChargerStatus(originStr string) {$/;"	f	package:main
-schema	main.go	/^	schema avro.Schema$/;"	v	package:main	typeref:typename:avro.Schema
+main	socksend.go	/^package main$/;"	p
+main	watchBox.go	/^package main$/;"	p
+saveCarGps	saveCarGps.go	/^func saveCarGps(originStr string) {$/;"	f
+saveCarGpsStatus	saveCarGps.go	/^func saveCarGpsStatus(originStr string) {$/;"	f
+saveDroneFlight	drone.go	/^func saveDroneFlight(originStr string) {$/;"	f
+saveDroneStation	drone.go	/^func saveDroneStation(originStr string) {$/;"	f
+saveGunEvent	gunbox.go	/^func saveGunEvent(originStr string) {$/;"	f
+saveGunState	gunbox.go	/^func saveGunState(originStr string) {$/;"	f
+saveIncar	main.go	/^func saveIncar(originStr string) {$/;"	f
+saveSensorGas	main.go	/^func saveSensorGas(originStr string) {$/;"	f
+saveSmartPhoneCharger	smartphoneCharger.go	/^func saveSmartPhoneCharger(originStr string) {$/;"	f
+saveSmartPhoneChargerStatus	smartphoneCharger.go	/^func saveSmartPhoneChargerStatus(originStr string) {$/;"	f
+saveWatchBoxStatus	watchBox.go	/^func saveWatchBoxStatus(originStr string) {$/;"	f
+schema	main.go	/^	schema avro.Schema$/;"	v
+sendMessage	socksend.go	/^func sendMessage(evValue string) {$/;"	f
+statEvetItem	socksend.go	/^type statEvetItem []Item$/;"	t
+util	util/util.go	/^package util$/;"	p
+util	util/util_test.go	/^package util$/;"	p
