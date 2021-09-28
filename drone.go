@@ -19,8 +19,16 @@ func saveDroneStation(originStr string) {
 }
 
 func saveDroneFlight(originStr string) {
+	defer func() {
+		msg := recover()
+		fmt.Println(msg)
+	}()
 	droneFlight := database.DroneFlight{}
-	json.Unmarshal([]byte(originStr), &droneFlight)
+	err := json.Unmarshal([]byte(originStr), &droneFlight)
+	if err != nil {
+		fmt.Printf("DrongFlight msg format err %v\n", err)
+		return
+	}
 	asciiSubstring := droneFlight.AvPos[1 : len(droneFlight.AvPos)-1]
 	droneFlight.AvPos = strings.ReplaceAll(asciiSubstring, ",", "")
 
