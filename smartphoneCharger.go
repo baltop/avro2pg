@@ -9,7 +9,11 @@ import (
 )
 
 func saveSmartPhoneCharger(originStr string) {
-
+	defer func() {
+		msg := recover()
+		fmt.Println(msg)
+	}()
+	
 	loc, _ := time.LoadLocation("Asia/Seoul")
 	smartphoneCharger := database.SmartphoneCharger{}
 	json.Unmarshal([]byte(originStr), &smartphoneCharger)
@@ -47,7 +51,11 @@ type SmartphoneChargerStatusJson struct {
 
 func saveSmartPhoneChargerStatus(originStr string) {
 	// loc, _ := time.LoadLocation("Asia/Seoul")
-
+	defer func() {
+		msg := recover()
+		fmt.Println(msg)
+	}()
+	
 	smartphoneChargerStatusJson := SmartphoneChargerStatusJson{}
 	json.Unmarshal([]byte(originStr), &smartphoneChargerStatusJson)
 

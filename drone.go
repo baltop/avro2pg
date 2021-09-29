@@ -8,6 +8,10 @@ import (
 )
 
 func saveDroneStation(originStr string) {
+	defer func() {
+		msg := recover()
+		fmt.Println(msg)
+	}()
 
 	// loc, _ := time.LoadLocation("Asia/Seoul")
 	droneStation := database.DroneStation{}

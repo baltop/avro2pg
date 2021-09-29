@@ -130,6 +130,10 @@ func main() {
 }
 
 func saveIncar(originStr string) {
+	defer func() {
+		msg := recover()
+		fmt.Println(msg)
+	}()
 
 	loc, _ := time.LoadLocation("Asia/Seoul")
 	incar := database.Incar{}
@@ -156,7 +160,11 @@ func saveIncar(originStr string) {
 }
 
 func saveSensorGas(originStr string) {
-
+	defer func() {
+		msg := recover()
+		fmt.Println(msg)
+	}()
+	
 	sensor := database.SensorGas{}
 	json.Unmarshal([]byte(originStr), &sensor)
 
