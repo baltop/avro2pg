@@ -144,7 +144,7 @@ func saveIncar(originStr string) {
 	}
 	fmt.Println(dateTime)
 
-	if incar.Command == "smt_alert_incar" { //입차시
+	if incar.Command == "smt_alert_incar" { // 입차시
 		incar.Data.InDateTime = sql.NullTime{Time: dateTime, Valid: true}
 		incar.Data.OutDateTime = sql.NullTime{Time: dateTime, Valid: false}
 		database.DB.Create(&incar)
@@ -164,7 +164,7 @@ func saveSensorGas(originStr string) {
 		msg := recover()
 		fmt.Println(msg)
 	}()
-	
+
 	sensor := database.SensorGas{}
 	json.Unmarshal([]byte(originStr), &sensor)
 

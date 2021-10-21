@@ -58,5 +58,5 @@ type CarGps struct {
 
 func (u *CarGps) TableName() string {
 	// custom table name, this is default
-	return "public.cargps"
+	return "s_army.cargps"
 }

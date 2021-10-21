@@ -13,5 +13,5 @@ type GunState struct {
 
 func (u *GunState) TableName() string {
 	// custom table name, this is default
-	return "public.gunstate"
+	return "s_army.gunstate"
 }

@@ -24,5 +24,5 @@ type DroneFlight struct {
 
 func (u *DroneFlight) TableName() string {
 	// custom table name, this is default
-	return "public.drone_flight"
+	return "s_army.drone_flight"
 }

@@ -18,5 +18,5 @@ type SensorGas struct {
 
 func (u *SensorGas) TableName() string {
 	// custom table name, this is default
-	return "public.sensorgas"
+	return "s_army.sensorgas"
 }

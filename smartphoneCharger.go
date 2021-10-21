@@ -13,7 +13,7 @@ func saveSmartPhoneCharger(originStr string) {
 		msg := recover()
 		fmt.Println(msg)
 	}()
-	
+
 	loc, _ := time.LoadLocation("Asia/Seoul")
 	smartphoneCharger := database.SmartphoneCharger{}
 	json.Unmarshal([]byte(originStr), &smartphoneCharger)
@@ -55,7 +55,7 @@ func saveSmartPhoneChargerStatus(originStr string) {
 		msg := recover()
 		fmt.Println(msg)
 	}()
-	
+
 	smartphoneChargerStatusJson := SmartphoneChargerStatusJson{}
 	json.Unmarshal([]byte(originStr), &smartphoneChargerStatusJson)
 

@@ -27,5 +27,5 @@ type Data struct {
 
 func (u *Incar) TableName() string {
 	// custom table name, this is default
-	return "public.incar"
+	return "s_army.incar"
 }

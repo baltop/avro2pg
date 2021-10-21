@@ -17,5 +17,5 @@ type SmartphoneChargerStatus struct {
 
 func (u *SmartphoneChargerStatus) TableName() string {
 	// custom table name, this is default
-	return "public.smartphone_charger_status"
+	return "s_army.smartphone_charger_status"
 }

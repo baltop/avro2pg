@@ -6,11 +6,11 @@ import (
 	"fmt"
 )
 
-//type WatchBox struct {
-//	ChargerNo string `json:"ChargerNo"`
-//	CheckDate string `json:"CheckDate"`
-//	Status    []int  `json:"Status"`
-//}
+// type WatchBox struct {
+// 	ChargerNo string `json:"ChargerNo"`
+// 	CheckDate string `json:"CheckDate"`
+// 	Status    []int  `json:"Status"`
+// }
 
 func saveWatchBoxStatus(originStr string) {
 	// loc, _ := time.LoadLocation("Asia/Seoul")

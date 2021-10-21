@@ -65,5 +65,5 @@ type CarGpsStatus struct {
 
 func (u *CarGpsStatus) TableName() string {
 	// custom table name, this is default
-	return "public.cargps_status"
+	return "s_army.cargps_status"
 }
