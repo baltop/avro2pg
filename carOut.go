@@ -4,12 +4,15 @@ import (
 	"avro2pg/database"
 	"encoding/json"
 	"fmt"
+	"runtime/debug"
 )
 
 func saveCarPlan(originStr string) {
 	defer func() {
-		msg := recover()
-		fmt.Println(msg)
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
 	}()
 
 	carPlan := database.CarPlan{}
@@ -24,8 +27,10 @@ func saveCarPlan(originStr string) {
 //
 func saveCarOut(originStr string) {
 	defer func() {
-		msg := recover()
-		fmt.Println(msg)
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
 	}()
 
 	carOut := database.CarOut{}

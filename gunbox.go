@@ -9,8 +9,10 @@ import (
 
 func saveGunState(originStr string) {
 	defer func() {
-		msg := recover()
-		fmt.Println(msg)
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
 	}()
 
 	gunState := database.GunState{}

@@ -4,6 +4,7 @@ import (
 	"avro2pg/database"
 	"encoding/json"
 	"fmt"
+	"runtime/debug"
 )
 
 // type WatchBox struct {
@@ -18,8 +19,10 @@ func saveWatchBoxStatus(originStr string) {
 	// loc, _ := time.LoadLocation("Asia/Seoul")
 
 	defer func() {
-		msg := recover()
-		fmt.Println(msg)
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
 	}()
 
 	watchBox := database.WatchBox{}

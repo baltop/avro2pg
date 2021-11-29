@@ -5,13 +5,16 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"runtime/debug"
 	"time"
 )
 
 func saveSmartPhoneCharger(originStr string) {
 	defer func() {
-		msg := recover()
-		fmt.Println(msg)
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
 	}()
 
 	loc, _ := time.LoadLocation("Asia/Seoul")
@@ -52,8 +55,10 @@ type SmartphoneChargerStatusJson struct {
 func saveSmartPhoneChargerStatus(originStr string) {
 	// loc, _ := time.LoadLocation("Asia/Seoul")
 	defer func() {
-		msg := recover()
-		fmt.Println(msg)
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
 	}()
 
 	smartphoneChargerStatusJson := SmartphoneChargerStatusJson{}

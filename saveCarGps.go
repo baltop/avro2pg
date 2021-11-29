@@ -4,6 +4,7 @@ import (
 	"avro2pg/database"
 	"encoding/json"
 	"fmt"
+	"runtime/debug"
 )
 
 type CarGpsList struct {
@@ -12,8 +13,10 @@ type CarGpsList struct {
 
 func saveCarGps(originStr string) {
 	defer func() {
-		msg := recover()
-		fmt.Println(msg)
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
 	}()
 
 	carGpsList := CarGpsList{}
@@ -32,8 +35,10 @@ type CarGpsStatusList struct {
 
 func saveCarGpsStatus(originStr string) {
 	defer func() {
-		msg := recover()
-		fmt.Println(msg)
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
 	}()
 
 	carGpsStatusList := CarGpsStatusList{}

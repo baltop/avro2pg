@@ -4,13 +4,16 @@ import (
 	"avro2pg/database"
 	"encoding/json"
 	"fmt"
+	"runtime/debug"
 	"strings"
 )
 
 func saveDroneStation(originStr string) {
 	defer func() {
-		msg := recover()
-		fmt.Println(msg)
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
 	}()
 
 	// loc, _ := time.LoadLocation("Asia/Seoul")
@@ -24,8 +27,10 @@ func saveDroneStation(originStr string) {
 
 func saveDroneFlight(originStr string) {
 	defer func() {
-		msg := recover()
-		fmt.Println(msg)
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
 	}()
 	droneFlight := database.DroneFlight{}
 	err := json.Unmarshal([]byte(originStr), &droneFlight)
