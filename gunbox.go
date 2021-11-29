@@ -4,6 +4,7 @@ import (
 	"avro2pg/database"
 	"encoding/json"
 	"fmt"
+	"runtime/debug"
 )
 
 func saveGunState(originStr string) {
@@ -24,8 +25,10 @@ func saveGunState(originStr string) {
 //
 func saveGunEvent(originStr string) {
 	defer func() {
-		msg := recover()
-		fmt.Println(msg)
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
 	}()
 
 	fmt.Println("guneventorigin   : ", originStr)
