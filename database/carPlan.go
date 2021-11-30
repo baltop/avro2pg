@@ -4,7 +4,7 @@ import "gorm.io/gorm"
 
 type CarPlan struct {
 	gorm.Model
-	CarLicenseNo     string `gorm:"primarykey" json:"carLicenseNo"`
+	CarLicenseNo     string `json:"carLicenseNo"`
 	CarOppNo         string `json:"carOppNo"`
 	ArmyUnit         string `json:"armyUnit"`
 	CarType          string `json:"carType"`

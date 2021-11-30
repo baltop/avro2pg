@@ -4,7 +4,7 @@ import "gorm.io/gorm"
 
 type CarOut struct {
 	gorm.Model
-	CarLicenseNo     string `gorm:"primarykey" json:"carLicenseNo"`
+	CarLicenseNo     string `json:"carLicenseNo"`
 	KeyOnDt          int64  `json:"keyOnDt"`
 	KeyOffDt         int64  `json:"keyOffDt"`
 	KeyStatus        string `json:"keyStatus"`

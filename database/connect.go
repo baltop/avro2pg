@@ -57,13 +57,14 @@ func ConnectDB() {
 	DB.AutoMigrate(&SmartphoneCharger{})
 
 	DB.AutoMigrate(&SmartphoneChargerStatus{})
-	DB.AutoMigrate(&CarGps{})
-	DB.AutoMigrate(&CarGpsStatus{})
+
 	DB.AutoMigrate(&GunState{})
 	DB.AutoMigrate(&GunEvent{})
 	DB.AutoMigrate(&DroneFlight{})
 	DB.AutoMigrate(&DroneStation{})
 	DB.AutoMigrate(&WatchBox{})
+	DB.AutoMigrate(&CarOut{})
+	DB.AutoMigrate(&CarPlan{})
 	fmt.Println("Database Migrated")
 
 }
