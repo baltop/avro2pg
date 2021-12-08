@@ -72,7 +72,7 @@ func main() {
 
 		fmt.Println("------------kafka to   [", kafkaMessage["to"].(string))
 		// from 값이 device id
-		fmt.Println("------------kafka from [", kafkaMessage["from"].(string))
+		fmt.Println("------device id kafka from [", kafkaMessage["from"].(string))
 		deviceId := kafkaMessage["from"].(string)
 		content := make(map[string]interface{})
 
@@ -80,7 +80,7 @@ func main() {
 		if err != nil {
 			fmt.Println(err)
 		}
-		fmt.Println(content)
+		fmt.Println("kafka message : ", content)
 
 		cin := content["m2m:cin"].(map[string]interface{})
 
@@ -93,7 +93,7 @@ func main() {
 		}
 
 		originStr := cin["con"].(string)
-		fmt.Println(originStr)
+		fmt.Println("origin string : ", originStr)
 
 		switch originid {
 		case "866785e4540c458985bfdc33ca2040d6":
@@ -123,11 +123,9 @@ func main() {
 		case "b02a481a38f7496d97bf80c70ab7c207":
 			go saveDroneStation(originStr)
 		case "2f1a4cf209a34db0affab936762de55c":
+			fmt.Println("drone flight")
 			go saveDroneFlight(originStr)
 		case "49d3fc4e819245dfa5005e372fa05cc4":
-			fmt.Println("+++++++!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!+++++++++++++++++++++++++++++++++++++++")
-			fmt.Println(originStr)
-			fmt.Println("+++++++!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!+++++++++++++++++++++++++++++++++++++++")
 			go saveWatchBoxStatus(originStr)
 		}
 

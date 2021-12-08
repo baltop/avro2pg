@@ -4,22 +4,27 @@ import "gorm.io/gorm"
 
 type DroneFlight struct {
 	gorm.Model
-	Msg           string  `json:"msg"`
-	Result        string  `json:"result"`
-	DroneID       string  `json:"drone_id"`
-	FlightMode    string  `json:"flight_mode"`
-	AvPos         string  `json:"av_pos"`
-	Speed         int     `json:"speed"`
-	Roll          float64 `json:"roll"`
-	Pitch         float64 `json:"pitch"`
-	Heading       int     `json:"heading"`
-	Altitude      int     `json:"altitude"`
-	Battery       int     `json:"battery"`
-	MslAlt        int     `json:"msl_alt"`
-	AglAlt        int     `json:"agl_alt"`
-	AvDted        int     `json:"av_dted"`
-	GpsAlt        int     `json:"gps_alt"`
-	StreamAddress string  `json:"streamAddress"`
+	Msg             string `json:"msg"`
+	Result          string `json:"result"`
+	DroneID         string `json:"drone_id"`
+	FlightMode      string `json:"flight_mode"`
+	AvPos           string `json:"av_pos"`
+	Speed           string `json:"speed"`
+	Roll            string `json:"roll"`
+	Pitch           string `json:"pitch"`
+	Heading         string `json:"heading"`
+	Altitude        string `json:"altitude"`
+	Battery         string `json:"battery"`
+	MslAlt          string `json:"msl_alt"`
+	AglAlt          string `json:"agl_alt"`
+	AvDted          string `json:"av_dted"`
+	GpsAlt          string `json:"gps_alt"`
+	StreamAddress   string `json:"streamAddress"`
+	CctvId          string `json:"cctv_id"`
+	OperateStatus   string `json:"operate_status"`
+	TargetLatitude  string `json:"target_latitude"`
+	TargetLongitude string `json:"target_longitude"`
+	TargetCount     string `json:"target_count"`
 }
 
 func (u *DroneFlight) TableName() string {
