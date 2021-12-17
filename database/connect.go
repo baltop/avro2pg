@@ -65,6 +65,8 @@ func ConnectDB() {
 	DB.AutoMigrate(&WatchBox{})
 	DB.AutoMigrate(&CarOut{})
 	DB.AutoMigrate(&CarPlan{})
+	DB.AutoMigrate(&CarEvent{})
+
 	fmt.Println("Database Migrated")
 
 }

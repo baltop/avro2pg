@@ -2,6 +2,7 @@ package main
 
 import (
 	"avro2pg/config"
+	"avro2pg/event"
 	"fmt"
 	"strings"
 
@@ -17,4 +18,6 @@ func main() {
 	fmt.Printf("UUIDv4: %s\n", u2)
 	t := strings.ReplaceAll(u2.String(), "-", "")
 	fmt.Println(t[0:24] + "pp")
+
+	event.SendMessage("경로 이탈")
 }

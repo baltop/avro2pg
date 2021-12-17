@@ -44,7 +44,7 @@ func main() {
 	// TODO  read from config
 	kafkaURL := config.Config("KAFKA_HOST")
 	topic := config.Config("KAFKA_TOPIC")
-	groupID := "topostgres"
+	groupID := "topostgres2"
 
 	kafkaReader := getKafkaReader(kafkaURL, topic, groupID)
 
@@ -94,7 +94,9 @@ func main() {
 
 		originStr := cin["con"].(string)
 		fmt.Println("origin string : ", originStr)
-
+		// iotweb / 디바이스관리 / 디바이스수신정보관리에서
+		// 해당건을 상세조회하여 수신서버 ID가 originid 입니다.
+		// deviceid는 해당메뉴의 목록화면에서 디바이스id 입니다.
 		switch originid {
 		case "866785e4540c458985bfdc33ca2040d6":
 			go saveSensorGas(originStr)
@@ -107,12 +109,13 @@ func main() {
 				go saveSmartPhoneChargerStatus(originStr)
 			}
 		case "39cd1e9ed0da43c0bc7fb55e214e70e9":
-			if deviceId == "5aa8aa715144494e888f0708fd3e124c" {
+			switch deviceId {
+			case config.Config("carPlanId"):
 				go saveCarPlan(originStr)
-			} else if deviceId == "c07b5804e7fe4b38953a8355eb5dd793" {
+			case config.Config("carOutId"):
 				go saveCarOut(originStr)
-				// go saveCarGps(originStr)
-				// go saveCarGpsStatus(originStr)
+			case config.Config("carEventId"):
+				go saveCarEvent(originStr)
 			}
 		case "61c42d3e474c47509e4adaebc08c8d47":
 			if deviceId == "3a8d372a53904793bc7988c6a3f68db2" {
