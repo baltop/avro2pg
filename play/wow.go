@@ -19,5 +19,5 @@ func main() {
 	t := strings.ReplaceAll(u2.String(), "-", "")
 	fmt.Println(t[0:24] + "pp")
 
-	event.SendMessage("경로 이탈")
+	event.SendMessage("경로 이탈2")
 }

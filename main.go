@@ -115,6 +115,7 @@ func main() {
 			case config.Config("carOutId"):
 				go saveCarOut(originStr)
 			case config.Config("carEventId"):
+				// {"carsInOperationID":251,"carLicenseNo":"452","notifyType":2,"longitude":37.742485238266084,"latitude":126.92642211914064}
 				go saveCarEvent(originStr)
 			}
 		case "61c42d3e474c47509e4adaebc08c8d47":

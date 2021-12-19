@@ -50,7 +50,13 @@ type BodyJson struct {
 	} `json:"StatEvet"`
 }
 
-func SendMessage(evValue string) {
+func SendMessage(originStr string) {
+	//  originStr 예시 :  {"carsInOperationID":251,"carLicenseNo":"452","notifyType":2,"longitude":37.742485238266084,"latitude":126.92642211914064}
+	//  carEvent := database.CarEvent{}
+	//  json.Unmarshal([]byte(originStr), &carEvent)
+	//  - notifyType 컬럼 : 이벤트 종류 (경로이탈:1, 도착지이탈:2, 지연도착:3, 사고+인명:4, 사고+차대차:5, 고장+기동X:6, 고장+기동O:7)
+	//  - 사고 관련하여 APP에서 호출하고 있는 /api/web/sos/req API 호출시 파라미터 추가 필요 (latitude, longitude => 현재위치 좌표)
+
 	// mrs 서버의 ip와 temporary port. port는 mrs의 system.properties에서 정함.
 	conn, err := net.Dial("tcp", config.Config("MrsServer"))
 	if nil != err {
@@ -83,19 +89,20 @@ func SendMessage(evValue string) {
 
 	// body content를 만듬.
 	bodyJson := BodyJson{}
-	bodyJson.StatEvet.OutbPosNm = evValue
+	bodyJson.StatEvet.OutbPosNm = originStr
 	bodyJson.StatEvet.StatEvetGdCd = 99
 	// bodyJson.StatEvet.StatEvetClrDtm = currentDateTimeString
 	bodyJson.StatEvet.USvcOutbId = t[:24]
 	bodyJson.StatEvet.StatEvetNm = "vms-event"
 	bodyJson.StatEvet.StatEvetId = config.Config("outCarEventId") // config.Config("outCarEventId")
-	bodyJson.StatEvet.StatEvetItem = []Item{{"DATA", evValue}}
+	bodyJson.StatEvet.StatEvetItem = []Item{{"DATA", originStr}}
 	bodyJson.StatEvet.StatEvetItemCnt = "1"
 	bodyJson.StatEvet.OutbPosCnt = "0"
 	bodyJson.StatEvet.ProcSt = "1"
 	bodyJson.StatEvet.CpxRelEvetOutbSeqnCnt = "0"
-	bodyJson.StatEvet.StatEvetCntn = evValue
+	bodyJson.StatEvet.StatEvetCntn = originStr
 	bodyJson.StatEvet.StatEvetOutbDtm = currentDateTimeString
+	//	bodyJson.StatEvet.OutbPos = []
 
 	// var statEvetCntn StatEvetCntn
 	// statEvetCntn = []string{"sleep", "comma", "flag"}
