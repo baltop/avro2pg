@@ -13,7 +13,7 @@ type CarOut struct {
 	OppLongitude     string `json:"longitude"`
 	FuelUse          int    `json:"fuelUse"`
 	Rpm              int    `json:"rpm"`
-	ReceivedDateTime string `json:"receivedDateTime"`
+	ReceivedDateTime int64  `json:"receivedDateTime"`
 }
 
 func (u *CarOut) TableName() string {

@@ -31,6 +31,8 @@ func saveCarPlan(originStr string) {
 		database.DB.First(&carSel, "cars_in_operation_id = ?", carPlan.CarsInOperationID)
 		carPlan.ID = carSel.ID
 		database.DB.Delete(&carPlan)
+	case "X":
+		database.DB.Delete(&carPlan, "car_license_no = ?", carPlan.CarLicenseNo)
 	}
 
 }

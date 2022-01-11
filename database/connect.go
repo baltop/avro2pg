@@ -36,7 +36,7 @@ func ConnectDB() {
 	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{
 		PrepareStmt:            true,
 		SkipDefaultTransaction: true,
-		Logger:                 logger.Default.LogMode(logger.Info),
+		Logger:                 logger.Default.LogMode(logger.Error),
 	})
 	if err != nil {
 		log.Println(err)
@@ -66,6 +66,8 @@ func ConnectDB() {
 	DB.AutoMigrate(&CarOut{})
 	DB.AutoMigrate(&CarPlan{})
 	DB.AutoMigrate(&CarEvent{})
+	DB.AutoMigrate(&InoutManage{})
+	DB.AutoMigrate(&BulletInout{})
 
 	fmt.Println("Database Migrated")
 

@@ -38,6 +38,9 @@ func saveDroneFlight(originStr string) {
 		fmt.Printf("DrongFlight msg format err %v\n", err)
 		return
 	}
+	if droneFlight.Result == "drone offline" {
+		return
+	}
 	asciiSubstring := droneFlight.AvPos[1 : len(droneFlight.AvPos)-1]
 	droneFlight.AvPos = strings.ReplaceAll(asciiSubstring, ",", "")
 

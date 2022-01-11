@@ -19,5 +19,7 @@ func main() {
 	t := strings.ReplaceAll(u2.String(), "-", "")
 	fmt.Println(t[0:24] + "pp")
 
-	event.SendMessage("경로 이탈2")
+	orginStr := `{"carsInOperationID":251,"carLicenseNo":"452","notifyType":2,"longitude":37.742485238266084,"latitude":126.92642211914064}`
+
+	event.SendMessage(orginStr)
 }
