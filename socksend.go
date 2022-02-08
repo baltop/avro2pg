@@ -10,8 +10,6 @@ import (
 	"net"
 	"strings"
 	"time"
-
-	uuid "github.com/satori/go.uuid"
 )
 
 type Item struct {
@@ -67,8 +65,8 @@ func sendMessage(evValue string) {
 	// 현재시간을 스트링으로 만듬. golang 특유의 포맷 문자열에 주의. 20060102...는 자바로 치면 yyyyMMdd 에 해당.
 	currentDateTimeString := strings.ReplaceAll(time.Now().Format("20060102150405.999"), ".", "")
 
-	u2 := uuid.NewV4()
-	fmt.Printf("UUIDv4: %s\n", u2)
+	// u2 := uuid.NewV4()
+	// fmt.Printf("UUIDv4: %s\n", u2)
 
 	// 헤더 a + 바디 문자열 길이 + 헤더B로 헤더를 구성함. 추후 변경값이 있으면 printf로 변경할 것.
 	// 웹에서 mrs에 접속해서 헤더관리 메뉴에 가면 정의되어 있음.
@@ -112,7 +110,7 @@ func sendMessage(evValue string) {
 		return
 	}
 
-	fmt.Println(string(bodyByte))
+	// fmt.Println(string(bodyByte))
 
 	// body := []byte(`{
 	// 	"StatEvet": {

@@ -33,7 +33,7 @@ func saveGunEvent(originStr string) {
 		}
 	}()
 
-	fmt.Println("guneventorigin   : ", originStr)
+	// fmt.Println("guneventorigin   : ", originStr)
 	gunEvent := database.GunEvent{}
 
 	json.Unmarshal([]byte(originStr), &gunEvent)

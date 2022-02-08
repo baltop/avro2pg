@@ -20,7 +20,7 @@ func saveDroneStation(originStr string) {
 	droneStation := database.DroneStation{}
 	json.Unmarshal([]byte(originStr), &droneStation)
 
-	fmt.Printf("DroneStation save %v\n", droneStation)
+	// fmt.Printf("DroneStation save %v\n", droneStation)
 
 	database.DB.Create(&droneStation)
 }
@@ -44,7 +44,7 @@ func saveDroneFlight(originStr string) {
 	asciiSubstring := droneFlight.AvPos[1 : len(droneFlight.AvPos)-1]
 	droneFlight.AvPos = strings.ReplaceAll(asciiSubstring, ",", "")
 
-	fmt.Printf("DroneFlight save %v\n", droneFlight)
+	// fmt.Printf("DroneFlight save %v\n", droneFlight)
 
 	database.DB.Create(&droneFlight)
 }
