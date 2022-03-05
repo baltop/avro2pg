@@ -70,7 +70,7 @@ func main() {
 			continue
 		}
 
-		fmt.Println("------------kafka to   [", kafkaMessage["to"].(string))
+		//fmt.Println("------------kafka to   [", kafkaMessage["to"].(string))
 		// from 값이 device id
 		fmt.Println("------device id kafka from [", kafkaMessage["from"].(string))
 		deviceId := kafkaMessage["from"].(string)
@@ -93,7 +93,7 @@ func main() {
 		}
 
 		originStr := cin["con"].(string)
-		fmt.Println("origin string : ", originStr)
+		//fmt.Println("origin string : ", originStr)
 		// iotweb / 디바이스관리 / 디바이스수신정보관리에서
 		// 해당건을 상세조회하여 수신서버 ID가 originid 입니다.
 		// deviceid는 해당메뉴의 목록화면에서 디바이스id 입니다.
@@ -115,7 +115,7 @@ func main() {
 			case config.Config("carOutId"):
 				go saveCarOut(originStr)
 			case config.Config("carEventId"):
-				// {"carsInOperationID":251,"carLicenseNo":"452","notifyType":2,"longitude":37.742485238266084,"latitude":126.92642211914064}
+				// go sendMessage(originStr)
 				go saveCarEvent(originStr)
 			}
 		case "61c42d3e474c47509e4adaebc08c8d47":
@@ -131,6 +131,20 @@ func main() {
 			go saveDroneFlight(originStr)
 		case "49d3fc4e819245dfa5005e372fa05cc4":
 			go saveWatchBoxStatus(originStr)
+		case config.Config("inoutOriginId"):
+			switch deviceId {
+			case config.Config("inoutManageDeviceId"):
+				fmt.Println("inout manage json")
+				fmt.Println(originStr)
+				go saveInoutmanage(originStr)
+			case config.Config("bulletInoutDeviceId"):
+				fmt.Println("bullet inout json")
+				fmt.Println(originStr)
+				go saveBulletInout(originStr)
+			}
+		default:
+			fmt.Println("============================================== missing Id")
+			fmt.Println(originStr)
 		}
 
 	}

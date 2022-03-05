@@ -2,11 +2,13 @@ package event
 
 import (
 	"avro2pg/config"
+	"avro2pg/database"
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net"
+	"runtime/debug"
 	"strings"
 	"time"
 
@@ -16,6 +18,12 @@ import (
 type Item struct {
 	Key   string `json:"key"`
 	Value string `json:"value"`
+}
+
+type Position struct {
+	X string `json:"x"`
+	Y string `json:"y"`
+	Z string `json:"z"`
 }
 
 type statEvetItem []Item
@@ -33,7 +41,7 @@ type BodyJson struct {
 
 		StatEvetCntn          string       `json:"statEvetCntn"`
 		SutbScopRads          string       `json:"outbScopRads"`
-		OutbPos               string       `json:"outbPos"`
+		OutbPos               []Position   `json:"outbPos"`
 		StatEvetOutbDtm       string       `json:"statEvetOutbDtm"`
 		StatEvetActnCntn      string       `json:"statEvetActnCntn"`
 		ProcSt                string       `json:"procSt"`
@@ -51,16 +59,46 @@ type BodyJson struct {
 }
 
 func SendMessage(originStr string) {
+	defer func() {
+
+		if r := recover(); r != nil {
+			fmt.Println("Recovered", r)
+			debug.PrintStack()
+		}
+	}()
+
 	//  originStr 예시 :  {"carsInOperationID":251,"carLicenseNo":"452","notifyType":2,"longitude":37.742485238266084,"latitude":126.92642211914064}
-	//  carEvent := database.CarEvent{}
-	//  json.Unmarshal([]byte(originStr), &carEvent)
+	carEvent := database.CarEvent{}
+	json.Unmarshal([]byte(originStr), &carEvent)
 	//  - notifyType 컬럼 : 이벤트 종류 (경로이탈:1, 도착지이탈:2, 지연도착:3, 사고+인명:4, 사고+차대차:5, 고장+기동X:6, 고장+기동O:7)
 	//  - 사고 관련하여 APP에서 호출하고 있는 /api/web/sos/req API 호출시 파라미터 추가 필요 (latitude, longitude => 현재위치 좌표)
+
+	fmt.Println("notifyType", carEvent.NotifyType)
+	fmt.Println("longitude", carEvent.Longitude)
+	notiMessage := ""
+	switch carEvent.NotifyType {
+	case 1:
+		notiMessage = "경로이탈"
+	case 2:
+		notiMessage = "도착지이탈"
+	case 3:
+		notiMessage = "지연도착"
+	case 4:
+		notiMessage = "사고 : 인명"
+	case 5:
+		notiMessage = "사고 : 차대차"
+	case 6:
+		notiMessage = "고장 - 기동불가능"
+	case 7:
+		notiMessage = "고장 - 기동가능"
+	default:
+		notiMessage = "차량이상"
+	}
 
 	// mrs 서버의 ip와 temporary port. port는 mrs의 system.properties에서 정함.
 	conn, err := net.Dial("tcp", config.Config("MrsServer"))
 	if nil != err {
-		log.Fatalf("failed to connect to server")
+		log.Println("failed to connect to server")
 	}
 	defer conn.Close()
 
@@ -89,19 +127,23 @@ func SendMessage(originStr string) {
 
 	// body content를 만듬.
 	bodyJson := BodyJson{}
-	bodyJson.StatEvet.OutbPosNm = originStr
+	bodyJson.StatEvet.OutbPosNm = carEvent.CarLicenseNo
 	bodyJson.StatEvet.StatEvetGdCd = 99
 	// bodyJson.StatEvet.StatEvetClrDtm = currentDateTimeString
+	// uuid를 24자리만
 	bodyJson.StatEvet.USvcOutbId = t[:24]
-	bodyJson.StatEvet.StatEvetNm = "vms-event"
+	bodyJson.StatEvet.StatEvetNm = "outcar-event"
 	bodyJson.StatEvet.StatEvetId = config.Config("outCarEventId") // config.Config("outCarEventId")
-	bodyJson.StatEvet.StatEvetItem = []Item{{"DATA", originStr}}
+	bodyJson.StatEvet.StatEvetItem = []Item{{"DATA", notiMessage}}
 	bodyJson.StatEvet.StatEvetItemCnt = "1"
-	bodyJson.StatEvet.OutbPosCnt = "0"
+	bodyJson.StatEvet.OutbPosCnt = "1"
 	bodyJson.StatEvet.ProcSt = "1"
 	bodyJson.StatEvet.CpxRelEvetOutbSeqnCnt = "0"
-	bodyJson.StatEvet.StatEvetCntn = originStr
+	bodyJson.StatEvet.StatEvetCntn = notiMessage
 	bodyJson.StatEvet.StatEvetOutbDtm = currentDateTimeString
+	posX := fmt.Sprintf("%f", carEvent.Longitude)
+	posY := fmt.Sprintf("%f", carEvent.Latitude)
+	bodyJson.StatEvet.OutbPos = []Position{{posX, posY, "0"}}
 	//	bodyJson.StatEvet.OutbPos = []
 
 	// var statEvetCntn StatEvetCntn
