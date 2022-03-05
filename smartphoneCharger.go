@@ -36,7 +36,7 @@ func saveSmartPhoneCharger(originStr string) {
 		smartphoneCharger.Time_use_start = sql.NullTime{Time: dateTime, Valid: false}
 	}
 
-	fmt.Printf("smartphonCharger save %v\n", smartphoneCharger)
+	// fmt.Printf("smartphonCharger save %v\n", smartphoneCharger)
 
 	database.DB.Create(&smartphoneCharger)
 
